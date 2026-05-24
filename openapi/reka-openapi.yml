@@ -1,0 +1,493 @@
+openapi: 3.1.0
+info:
+  title: Reka API
+  description: |
+    The Reka API exposes Reka's multimodal foundation models through a REST
+    interface that includes chat completions, vision (video and image
+    management, search, Q&A, clip generation), speech transcription and
+    translation, and a Research API with web search capabilities. The chat
+    surface is OpenAI-compatible.
+
+    Only a representative subset of endpoints is modeled here, drawn from
+    the public Reka documentation at https://docs.reka.ai. See the
+    documentation for the full catalog.
+  version: "1.0.0"
+  contact:
+    name: Reka Documentation
+    url: https://docs.reka.ai
+  license:
+    name: Reka Proprietary
+externalDocs:
+  description: Reka API documentation
+  url: https://docs.reka.ai
+servers:
+  - url: https://api.reka.ai
+    description: Reka API production server
+tags:
+  - name: Chat
+    description: Chat completions with the Reka model family.
+  - name: Models
+    description: List and describe available Reka models.
+  - name: Videos
+    description: Upload and manage videos for the Reka Vision platform.
+  - name: VideoGroups
+    description: Organize videos into named groups.
+  - name: Images
+    description: Upload, manage, and search images.
+  - name: Search
+    description: Search across uploaded video content.
+  - name: QA
+    description: Question-answer interactions over video content.
+  - name: Clips
+    description: Generate and manage video clips.
+  - name: Speech
+    description: Speech transcription and translation.
+  - name: Research
+    description: Research chat completions with web search.
+security:
+  - bearerAuth: []
+paths:
+  /v1/chat:
+    post:
+      tags: [Chat]
+      summary: Create a chat completion
+      description: |
+        Generate a chat completion from one of the Reka models. Supports
+        multimodal inputs including text, images, video, and audio.
+      operationId: createChatCompletion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Chat completion response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+  /v1/models:
+    get:
+      tags: [Models]
+      summary: List available models
+      description: Return the list of Reka models available to the caller.
+      operationId: listModels
+      responses:
+        '200':
+          description: A list of available models.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Model'
+  /v1/videos/upload:
+    post:
+      tags: [Videos]
+      summary: Upload a video
+      description: Upload a video file to the Reka Vision platform.
+      operationId: uploadVideo
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Video file to upload.
+                metadata:
+                  type: string
+                  description: Optional JSON metadata for the video.
+      responses:
+        '200':
+          description: Video uploaded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+  /v1/videos:
+    get:
+      tags: [Videos]
+      summary: List videos
+      description: List videos uploaded to the caller's account.
+      operationId: listVideos
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+          description: Maximum number of videos to return.
+        - name: cursor
+          in: query
+          schema:
+            type: string
+          description: Pagination cursor.
+      responses:
+        '200':
+          description: List of videos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Video'
+  /v1/videos/{video_id}:
+    get:
+      tags: [Videos]
+      summary: Get a video
+      description: Retrieve metadata for a specific uploaded video.
+      operationId: getVideo
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Video details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+    delete:
+      tags: [Videos]
+      summary: Delete a video
+      description: Delete a video and its associated indexes.
+      operationId: deleteVideo
+      parameters:
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Video deleted.
+  /v1/video-groups:
+    get:
+      tags: [VideoGroups]
+      summary: List video groups
+      description: List video groups owned by the caller.
+      operationId: listVideoGroups
+      responses:
+        '200':
+          description: List of video groups.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/VideoGroup'
+    post:
+      tags: [VideoGroups]
+      summary: Create a video group
+      description: Create a new named group of videos.
+      operationId: createVideoGroup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name:
+                  type: string
+                  description: Name of the video group.
+                description:
+                  type: string
+                  description: Optional description.
+      responses:
+        '200':
+          description: Video group created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoGroup'
+  /v1/search:
+    post:
+      tags: [Search]
+      summary: Search videos
+      description: Search across uploaded videos with a natural-language query.
+      operationId: searchVideos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query:
+                  type: string
+                  description: Natural-language search query.
+                video_group_id:
+                  type: string
+                  description: Optional video group to restrict the search to.
+                limit:
+                  type: integer
+                  default: 20
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        video_id:
+                          type: string
+                        score:
+                          type: number
+                        timestamp:
+                          type: number
+  /v1/qa/chat:
+    post:
+      tags: [QA]
+      summary: Video Q&A chat
+      description: |
+        Ask conversational questions over an uploaded video or video group
+        with multi-turn context.
+      operationId: qaChat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [messages]
+              properties:
+                video_id:
+                  type: string
+                video_group_id:
+                  type: string
+                messages:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Q&A response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+  /v1/clips:
+    post:
+      tags: [Clips]
+      summary: Create clips
+      description: Generate clips from a video by prompt or query.
+      operationId: createClips
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [video_id]
+              properties:
+                video_id:
+                  type: string
+                prompt:
+                  type: string
+                  description: Natural-language description of the clips to produce.
+      responses:
+        '202':
+          description: Clip generation accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+  /v1/speech/transcribe-translate:
+    post:
+      tags: [Speech]
+      summary: Transcribe or translate audio
+      description: Transcribe or translate spoken audio with multimodal reasoning.
+      operationId: speechTranscribeTranslate
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                mode:
+                  type: string
+                  enum: [transcribe, translate]
+                target_language:
+                  type: string
+                  description: Target language for translation.
+      responses:
+        '200':
+          description: Transcription or translation result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  text:
+                    type: string
+  /v1/chat/completions:
+    post:
+      tags: [Research]
+      summary: Research chat with web search
+      description: |
+        OpenAI-compatible chat completions endpoint, including Reka Research
+        models that can browse the web and return citations.
+      operationId: researchChat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Chat completion response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: REKA_API_KEY
+      description: |
+        Bearer token issued from the Reka Platform dashboard. Pass as
+        `Authorization: Bearer REKA_API_KEY`.
+  schemas:
+    Message:
+      type: object
+      required: [role, content]
+      properties:
+        role:
+          type: string
+          enum: [system, user, assistant, tool]
+        content:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum: [text, image_url, video_url, audio_url]
+                  text:
+                    type: string
+                  image_url:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+    ChatRequest:
+      type: object
+      required: [model, messages]
+      properties:
+        model:
+          type: string
+          description: Model identifier (e.g. reka-core, reka-flash, reka-edge).
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        max_tokens:
+          type: integer
+        temperature:
+          type: number
+        top_p:
+          type: number
+        stream:
+          type: boolean
+    ChatResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                $ref: '#/components/schemas/Message'
+              finish_reason:
+                type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        owned_by:
+          type: string
+    Video:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties: true
+    VideoGroup:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          format: date-time
