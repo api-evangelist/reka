@@ -152,6 +152,8 @@ common:
     url: https://www.linkedin.com/company/reka-ai
   - type: Twitter
     url: https://twitter.com/RekaAILabs
+  - type: LLMsTxt
+    url: https://docs.reka.ai/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
