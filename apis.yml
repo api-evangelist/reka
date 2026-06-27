@@ -59,11 +59,11 @@ apis:
         url: https://docs.reka.ai/quick-start
       - type: OpenAPI
         url: https://api.reka.ai/openapi.json
-      - type: Developer Portal
+      - type: DeveloperPortal
         url: https://platform.reka.ai
-      - type: SDK
+      - type: SDKs
         url: https://github.com/reka-ai/reka-sdk-python
-      - type: SDK
+      - type: SDKs
         url: https://pypi.org/project/reka-api
       - type: Benchmark
         url: https://github.com/reka-ai/reka-vibe-eval
@@ -136,7 +136,7 @@ common:
     url: https://reka.ai
   - type: Documentation
     url: https://docs.reka.ai
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://platform.reka.ai
   - type: OpenAPI
     url: https://api.reka.ai/openapi.json
@@ -152,7 +152,7 @@ common:
     url: https://www.linkedin.com/company/reka-ai
   - type: Twitter
     url: https://twitter.com/RekaAILabs
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.reka.ai/llms.txt
 maintainers:
   - FN: Kin Lane
