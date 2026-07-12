@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/reka-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: REKA_API_KEY
+  description: |-
+    Bearer token issued from the Reka Platform dashboard. Pass as
+    `Authorization: Bearer REKA_API_KEY`.
+  sources:
+  - openapi/reka-openapi.yml
