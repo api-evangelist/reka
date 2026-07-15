@@ -132,6 +132,8 @@ apis:
           Authenticate with a REKA_API_KEY Bearer token issued from the
           Reka Platform dashboard at platform.reka.ai.
 common:
+  - type: AgenticAccess
+    url: agentic-access/reka-agentic-access.yml
   - type: TrustCenter
     url: security/reka-trust-center.yml
   - type: DomainSecurity
