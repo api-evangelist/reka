@@ -11,6 +11,6 @@ schemes:
   bearerFormat: REKA_API_KEY
   description: |-
     Bearer token issued from the Reka Platform dashboard. Pass as
-    `Authorization: Bearer REKA_API_KEY`.
+    `Authorization: Bearer [example key]`.
   sources:
   - openapi/reka-openapi.yml
