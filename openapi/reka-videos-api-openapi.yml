@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  title: Reka Chat Videos API
+  description: 'The Reka API exposes Reka''s multimodal foundation models through a REST
+
+    interface that includes chat completions, vision (video and image
+
+    management, search, Q&A, clip generation), speech transcription and
+
+    translation, and a Research API with web search capabilities. The chat
+
+    surface is OpenAI-compatible.
+
+
+    Only a representative subset of endpoints is modeled here, drawn from
+
+    the public Reka documentation at https://docs.reka.ai. See the
+
+    documentation for the full catalog.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Reka Documentation
+    url: https://docs.reka.ai
+  license:
+    name: Reka Proprietary
+servers:
+- url: https://api.reka.ai
+  description: Reka API production server
+security:
+- bearerAuth: []
+tags:
+- name: Videos
+  description: Upload and manage videos for the Reka Vision platform.
+paths:
+  /v1/videos/upload:
+    post:
+      tags:
+      - Videos
+      summary: Upload a video
+      description: Upload a video file to the Reka Vision platform.
+      operationId: uploadVideo
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Video file to upload.
+                metadata:
+                  type: string
+                  description: Optional JSON metadata for the video.
+      responses:
+        '200':
+          description: Video uploaded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+  /v1/videos:
+    get:
+      tags:
+      - Videos
+      summary: List videos
+      description: List videos uploaded to the caller's account.
+      operationId: listVideos
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 20
+        description: Maximum number of videos to return.
+      - name: cursor
+        in: query
+        schema:
+          type: string
+        description: Pagination cursor.
+      responses:
+        '200':
+          description: List of videos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Video'
+  /v1/videos/{video_id}:
+    get:
+      tags:
+      - Videos
+      summary: Get a video
+      description: Retrieve metadata for a specific uploaded video.
+      operationId: getVideo
+      parameters:
+      - name: video_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Video details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+    delete:
+      tags:
+      - Videos
+      summary: Delete a video
+      description: Delete a video and its associated indexes.
+      operationId: deleteVideo
+      parameters:
+      - name: video_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Video deleted.
+components:
+  schemas:
+    Video:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: REKA_API_KEY
+      description: 'Bearer token issued from the Reka Platform dashboard. Pass as
+
+        `Authorization: Bearer REKA_API_KEY`.
+
+        '
+externalDocs:
+  description: Reka API documentation
+  url: https://docs.reka.ai

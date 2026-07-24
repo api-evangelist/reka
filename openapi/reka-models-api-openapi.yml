@@ -1,0 +1,79 @@
+openapi: 3.1.0
+info:
+  title: Reka Chat Models API
+  description: 'The Reka API exposes Reka''s multimodal foundation models through a REST
+
+    interface that includes chat completions, vision (video and image
+
+    management, search, Q&A, clip generation), speech transcription and
+
+    translation, and a Research API with web search capabilities. The chat
+
+    surface is OpenAI-compatible.
+
+
+    Only a representative subset of endpoints is modeled here, drawn from
+
+    the public Reka documentation at https://docs.reka.ai. See the
+
+    documentation for the full catalog.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Reka Documentation
+    url: https://docs.reka.ai
+  license:
+    name: Reka Proprietary
+servers:
+- url: https://api.reka.ai
+  description: Reka API production server
+security:
+- bearerAuth: []
+tags:
+- name: Models
+  description: List and describe available Reka models.
+paths:
+  /v1/models:
+    get:
+      tags:
+      - Models
+      summary: List available models
+      description: Return the list of Reka models available to the caller.
+      operationId: listModels
+      responses:
+        '200':
+          description: A list of available models.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Model'
+components:
+  schemas:
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        owned_by:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: REKA_API_KEY
+      description: 'Bearer token issued from the Reka Platform dashboard. Pass as
+
+        `Authorization: Bearer REKA_API_KEY`.
+
+        '
+externalDocs:
+  description: Reka API documentation
+  url: https://docs.reka.ai

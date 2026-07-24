@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: Reka Chat Speech API
+  description: 'The Reka API exposes Reka''s multimodal foundation models through a REST
+
+    interface that includes chat completions, vision (video and image
+
+    management, search, Q&A, clip generation), speech transcription and
+
+    translation, and a Research API with web search capabilities. The chat
+
+    surface is OpenAI-compatible.
+
+
+    Only a representative subset of endpoints is modeled here, drawn from
+
+    the public Reka documentation at https://docs.reka.ai. See the
+
+    documentation for the full catalog.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Reka Documentation
+    url: https://docs.reka.ai
+  license:
+    name: Reka Proprietary
+servers:
+- url: https://api.reka.ai
+  description: Reka API production server
+security:
+- bearerAuth: []
+tags:
+- name: Speech
+  description: Speech transcription and translation.
+paths:
+  /v1/speech/transcribe-translate:
+    post:
+      tags:
+      - Speech
+      summary: Transcribe or translate audio
+      description: Transcribe or translate spoken audio with multimodal reasoning.
+      operationId: speechTranscribeTranslate
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                mode:
+                  type: string
+                  enum:
+                  - transcribe
+                  - translate
+                target_language:
+                  type: string
+                  description: Target language for translation.
+      responses:
+        '200':
+          description: Transcription or translation result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  text:
+                    type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: REKA_API_KEY
+      description: 'Bearer token issued from the Reka Platform dashboard. Pass as
+
+        `Authorization: Bearer REKA_API_KEY`.
+
+        '
+externalDocs:
+  description: Reka API documentation
+  url: https://docs.reka.ai

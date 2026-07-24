@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: Reka Chat VideoGroups API
+  description: 'The Reka API exposes Reka''s multimodal foundation models through a REST
+
+    interface that includes chat completions, vision (video and image
+
+    management, search, Q&A, clip generation), speech transcription and
+
+    translation, and a Research API with web search capabilities. The chat
+
+    surface is OpenAI-compatible.
+
+
+    Only a representative subset of endpoints is modeled here, drawn from
+
+    the public Reka documentation at https://docs.reka.ai. See the
+
+    documentation for the full catalog.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Reka Documentation
+    url: https://docs.reka.ai
+  license:
+    name: Reka Proprietary
+servers:
+- url: https://api.reka.ai
+  description: Reka API production server
+security:
+- bearerAuth: []
+tags:
+- name: VideoGroups
+  description: Organize videos into named groups.
+paths:
+  /v1/video-groups:
+    get:
+      tags:
+      - VideoGroups
+      summary: List video groups
+      description: List video groups owned by the caller.
+      operationId: listVideoGroups
+      responses:
+        '200':
+          description: List of video groups.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/VideoGroup'
+    post:
+      tags:
+      - VideoGroups
+      summary: Create a video group
+      description: Create a new named group of videos.
+      operationId: createVideoGroup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: Name of the video group.
+                description:
+                  type: string
+                  description: Optional description.
+      responses:
+        '200':
+          description: Video group created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoGroup'
+components:
+  schemas:
+    VideoGroup:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: REKA_API_KEY
+      description: 'Bearer token issued from the Reka Platform dashboard. Pass as
+
+        `Authorization: Bearer REKA_API_KEY`.
+
+        '
+externalDocs:
+  description: Reka API documentation
+  url: https://docs.reka.ai

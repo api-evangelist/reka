@@ -1,0 +1,83 @@
+openapi: 3.1.0
+info:
+  title: Reka Chat Clips API
+  description: 'The Reka API exposes Reka''s multimodal foundation models through a REST
+
+    interface that includes chat completions, vision (video and image
+
+    management, search, Q&A, clip generation), speech transcription and
+
+    translation, and a Research API with web search capabilities. The chat
+
+    surface is OpenAI-compatible.
+
+
+    Only a representative subset of endpoints is modeled here, drawn from
+
+    the public Reka documentation at https://docs.reka.ai. See the
+
+    documentation for the full catalog.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Reka Documentation
+    url: https://docs.reka.ai
+  license:
+    name: Reka Proprietary
+servers:
+- url: https://api.reka.ai
+  description: Reka API production server
+security:
+- bearerAuth: []
+tags:
+- name: Clips
+  description: Generate and manage video clips.
+paths:
+  /v1/clips:
+    post:
+      tags:
+      - Clips
+      summary: Create clips
+      description: Generate clips from a video by prompt or query.
+      operationId: createClips
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - video_id
+              properties:
+                video_id:
+                  type: string
+                prompt:
+                  type: string
+                  description: Natural-language description of the clips to produce.
+      responses:
+        '202':
+          description: Clip generation accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: REKA_API_KEY
+      description: 'Bearer token issued from the Reka Platform dashboard. Pass as
+
+        `Authorization: Bearer REKA_API_KEY`.
+
+        '
+externalDocs:
+  description: Reka API documentation
+  url: https://docs.reka.ai
