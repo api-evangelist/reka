@@ -13,9 +13,22 @@ description: >-
   environments, and the company maintains an active open-source presence on
   Hugging Face and GitHub including the Reka VibeEval benchmark.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/reka.png
 tags:
   - AI
   - Multimodal
@@ -32,105 +45,204 @@ created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.20'
 apis:
-  - aid: reka:reka-api
-    name: Reka API
-    description: >-
-      The Reka API exposes chat-completion and multimodal endpoints for the
-      Reka Core, Flash, Edge, and Spark models with image, video, and audio
-      input support. The v1 surface at api.reka.ai/v1 is OpenAI-compatible
-      and Reka Research is fully compatible with the OpenAI /chat/completions
-      schema. Reka offers a published OpenAPI definition and interactive
-      Swagger documentation along with first-party Python and TypeScript
-      SDKs, vLLM plugin, n8n nodes, and a .NET SDK.
-    humanURL: https://docs.reka.ai
-    baseURL: https://api.reka.ai/v1
-    tags:
-      - Multimodal
-      - LLM
-      - Chat Completions
-      - OpenAI Compatible
-      - Vision
-      - Video
-      - REST
-    properties:
-      - type: Documentation
-        url: https://docs.reka.ai
-      - type: GettingStarted
-        url: https://docs.reka.ai/quick-start
-      - type: OpenAPI
-        url: https://api.reka.ai/openapi.json
-      - type: DeveloperPortal
-        url: https://platform.reka.ai
-      - type: SDKs
-        url: https://github.com/reka-ai/reka-sdk-python
-      - type: SDKs
-        url: https://pypi.org/project/reka-api
-      - type: Benchmark
-        url: https://github.com/reka-ai/reka-vibe-eval
-    features:
-      - name: Multimodal Chat Completions
-        description: >-
-          Joint reasoning over text, image, video, and audio inputs in a
-          single chat-completion request.
-      - name: Tiered Model Catalog
-        description: >-
-          Core (67B), Flash (21B), Edge (7B), and Spark (1B) models for
-          different cost, latency, and capability points.
-      - name: OpenAI Compatibility
-        description: >-
-          Reka Research is fully compatible with the OpenAI
-          /chat/completions schema for drop-in client use.
-      - name: Vision Platform
-        description: >-
-          Enterprise vision platform for detection, captioning, and
-          video understanding workloads.
-      - name: Speech Understanding
-        description: >-
-          Reka Speech endpoint for audio comprehension and transcription
-          with multimodal reasoning.
-      - name: Flexible Deployment
-        description: >-
-          Cloud, VPC, on-premises, and air-gapped deployment options for
-          regulated and sovereign customers.
-      - name: First-Party SDKs
-        description: >-
-          Python, TypeScript, and .NET SDKs with examples, plus a vLLM
-          plugin for self-hosted Reka models.
-    useCases:
-      - name: Video Captioning and Search
-        description: >-
-          Generate captions, summaries, and chapter markers for long-form
-          video content.
-      - name: Security and Defense Perception
-        description: >-
-          Detection, classification, and event reasoning over surveillance
-          and operations video.
-      - name: Sports and Game Highlights
-        description: >-
-          Auto-generate highlight reels and performance analytics from
-          live and recorded footage.
-      - name: Enterprise Document Understanding
-        description: >-
-          Reason over multimodal documents combining text, tables, and
-          embedded imagery.
-      - name: On-Premises Sovereign AI
-        description: >-
-          Deploy Reka models inside customer VPC, on-prem, or air-gapped
-          environments for regulated workloads.
-    integrations:
-      - name: OpenAI SDK
-      - name: LangChain
-      - name: LlamaIndex
-      - name: Hugging Face
-      - name: vLLM
-      - name: n8n
-      - name: Vercel AI SDK
-      - name: Discord
-    authentication:
-      - type: API Key
-        description: >-
-          Authenticate with a REKA_API_KEY Bearer token issued from the
-          Reka Platform dashboard at platform.reka.ai.
+- aid: reka:reka-chat-api
+  name: Reka Chat API
+  description: Chat completions with the Reka model family.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - Chat
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-chat-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-clips-api
+  name: Reka Clips API
+  description: Generate and manage video clips.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - Clips
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-clips-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-models-api
+  name: Reka Models API
+  description: List and describe available Reka models.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-models-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-qa-api
+  name: Reka QA API
+  description: Question-answer interactions over video content.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - QA
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-qa-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-research-api
+  name: Reka Research API
+  description: Research chat completions with web search.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - Research
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-research-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-search-api
+  name: Reka Search API
+  description: Search across uploaded video content.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-search-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-speech-api
+  name: Reka Speech API
+  description: Speech transcription and translation.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - Speech
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-speech-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-videogroups-api
+  name: Reka VideoGroups API
+  description: Organize videos into named groups.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - VideoGroups
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-videogroups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-videos-api
+  name: Reka Videos API
+  description: Upload and manage videos for the Reka Vision platform.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - Videos
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-videos-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
 common:
   - type: AgenticAccess
     url: agentic-access/reka-agentic-access.yml
