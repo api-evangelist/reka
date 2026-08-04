@@ -1,0 +1,30 @@
+{
+  "provider": "reka",
+  "sources": [
+    "reka-chat-api-openapi.yml",
+    "reka-clips-api-openapi.yml",
+    "reka-models-api-openapi.yml",
+    "reka-qa-api-openapi.yml",
+    "reka-research-api-openapi.yml",
+    "reka-search-api-openapi.yml",
+    "reka-speech-api-openapi.yml",
+    "reka-videogroups-api-openapi.yml",
+    "reka-videos-api-openapi.yml"
+  ],
+  "outputs": [
+    "reka-chat-api-openapi.yml",
+    "reka-clips-api-openapi.yml",
+    "reka-models-api-openapi.yml",
+    "reka-qa-api-openapi.yml",
+    "reka-research-api-openapi.yml",
+    "reka-search-api-openapi.yml",
+    "reka-speech-api-openapi.yml",
+    "reka-videogroups-api-openapi.yml",
+    "reka-videos-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
