@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reka Chat QA API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "QA",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Video Q&A chat",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/qa/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Ask conversational questions over an uploaded video or video group\nwith multi-turn context.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

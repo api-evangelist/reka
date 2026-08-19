@@ -1,0 +1,103 @@
+# Reka API
+
+> Documentation for Reka AI APIs.
+
+## Instructions for AI Agents
+
+- For clean Markdown of any page, append `.md` to the page URL
+- For section-specific indexes, append `/llms.txt` to any section URL
+- For AI client integration (Claude Code, Cursor, etc.), connect to the MCP server at https://docs.reka.ai/_mcp/server
+
+## Docs
+
+- [Reka API Documentation](https://docs.reka.ai/overview.md): Explore our guides and examples to integrate Reka API.
+- [Quickstart](https://docs.reka.ai/quickstart.md): Start using Reka Research in minutes — with OpenAI-compatible calls, real-time web search, and grounded answers.
+- [Errors](https://docs.reka.ai/errors.md)
+- [API Pricing](https://docs.reka.ai/pricing.md)
+- [Overview](https://docs.reka.ai/chat/overview.md)
+- [Chat with Image, Video, and Audio](https://docs.reka.ai/chat/chat-with-image-video-and-audio.md)
+- [Function Calling](https://docs.reka.ai/chat/function-calling.md)
+- [Models](https://docs.reka.ai/chat/models.md)
+- [Vision API](https://docs.reka.ai/vision/overview.md): Introduction to Reka's Vision API for video processing and analysis
+- [Rate Limits](https://docs.reka.ai/vision/rate-limits.md): API request limits and content constraints for Reka Vision
+- [Vision API Pricing](https://docs.reka.ai/vision/pricing.md): Pricing details for Reka Vision API
+- [MCP Server](https://docs.reka.ai/vision/mcp-server.md): Connect agent clients to Reka Vision with MCP for video upload, search, inspection, and Q&A.
+- [Video Management](https://docs.reka.ai/vision/video-management.md): Learn how to upload, retrieve, list, and delete videos
+- [Video Group Management](https://docs.reka.ai/vision/video-group-management.md): Organize indexed videos into named collections and manage group metadata
+- [Video Search](https://docs.reka.ai/vision/video-search.md): Learn how to search through your uploaded videos
+- [Video Q&A](https://docs.reka.ai/vision/video-qa.md): Ask questions about your videos and get AI-powered answers
+- [Clip Generation API (Reka Clip)](https://docs.reka.ai/vision/highlight-clip-generation.md): Learn how to generate shorter highlight clips from your longer videos
+- [Metadata Tagging](https://docs.reka.ai/vision/metadata-tagging.md): Learn how to tag your videos with metadata
+- [Image Management](https://docs.reka.ai/vision/image-management.md): Learn how to upload, retrieve, list, and delete images
+- [Image Search](https://docs.reka.ai/vision/image-search.md): Search through indexed images using natural language queries
+- [Reka Research](https://docs.reka.ai/research/overview.md): Add real-time web results to your AI app — with full reasoning, citations, and OpenAI compatibility.
+- [Streaming](https://docs.reka.ai/research/streaming.md): Get partial answers in real time. Watch how your agent searches, reasons, and responds — ideal for fast, interactive apps.
+- [Reasoning Steps](https://docs.reka.ai/research/reasoning-steps.md): See how your agent reasons — step by step. Every tool call and decision is recorded, so you can debug, explain, and trust the answers.
+- [Web Search Configuration](https://docs.reka.ai/research/web-search.md): Configure how Reka Research performs real-time web search. Learn to enable search, set limits, and filter domains for trusted results.
+- [Structured Output](https://docs.reka.ai/research/structured-output.md): Define exactly how your agent should respond — with structured JSON output that’s easy to validate, parse, and use downstream.
+- [Parallel Thinking](https://docs.reka.ai/research/parallel-thinking.md)
+- [Best Practices for Reka Research](https://docs.reka.ai/research/best-practices.md): Learn how to structure clear, focused prompts for better results with Reka Research. Includes examples and guidance for developers.
+- [Error Codes and Rate Limits](https://docs.reka.ai/research/errors.md): Understand the error responses and rate limiting behavior of Reka Research, including status codes, headers, and tips for resolution.
+- [FAQs](https://docs.reka.ai/resources/faqs.md): Common questions about Reka API
+- [Changelog](https://docs.reka.ai/resources/changelog/llms.txt)
+
+## API Docs
+
+- API Reference [Chat](https://docs.reka.ai/chat/api-reference/create.md)
+- API Reference [Models](https://docs.reka.ai/chat/api-reference/get.md)
+- API Reference > Video Management [Upload Video](https://docs.reka.ai/vision/api-reference/video-management/upload.md)
+- API Reference > Video Management [Get Video](https://docs.reka.ai/vision/api-reference/video-management/get-video.md)
+- API Reference > Video Management [List Videos](https://docs.reka.ai/vision/api-reference/video-management/get-videos.md)
+- API Reference > Video Management [Delete Video](https://docs.reka.ai/vision/api-reference/video-management/delete-video.md)
+- API Reference > Video Groups [Create Video Group](https://docs.reka.ai/vision/api-reference/video-groups/post-create-video-group.md)
+- API Reference > Video Groups [List Video Groups](https://docs.reka.ai/vision/api-reference/video-groups/get-list-video-groups.md)
+- API Reference > Video Groups [Get Video Group](https://docs.reka.ai/vision/api-reference/video-groups/get-video-group.md)
+- API Reference > Video Groups [Update Video Group](https://docs.reka.ai/vision/api-reference/video-groups/patch-update-video-group.md)
+- API Reference > Video Groups [Delete Video Group](https://docs.reka.ai/vision/api-reference/video-groups/delete-video-group.md)
+- API Reference > Video Groups [List Group Videos](https://docs.reka.ai/vision/api-reference/video-groups/list-group-videos-v-1-videos-groups-group-id-videos-get.md)
+- API Reference > Video Search [Search Videos](https://docs.reka.ai/vision/api-reference/video-search/post-embedding-search.md)
+- API Reference > Video QA [Chat with Video QA](https://docs.reka.ai/vision/api-reference/video-qa/chat-v-1-qa-chat-post.md)
+- API Reference > Metadata Tagging [Quick Tag Video](https://docs.reka.ai/vision/api-reference/metadata-tagging/quick-tag-v-1-qa-quicktag-post.md)
+- API Reference > Metadata Tagging [Indexed Tag Video](https://docs.reka.ai/vision/api-reference/metadata-tagging/indexed-tag-v-1-qa-indexedtag-post.md)
+- API Reference > Clip Generation [Create Clips](https://docs.reka.ai/vision/api-reference/clip-generation/create-reel-v-1-clips-post.md)
+- API Reference > Clip Generation [Get Clip Status](https://docs.reka.ai/vision/api-reference/clip-generation/get-reel-v-1-clips-id-get.md)
+- API Reference > Clip Generation [Delete Clip](https://docs.reka.ai/vision/api-reference/clip-generation/delete-reel-v-1-clips-id-delete.md)
+- API Reference > Image Management [Upload Images](https://docs.reka.ai/vision/api-reference/image-management/upload-images-v-1-images-upload-post.md)
+- API Reference > Image Management [Get Image](https://docs.reka.ai/vision/api-reference/image-management/get-image.md)
+- API Reference > Image Management [List Images](https://docs.reka.ai/vision/api-reference/image-management/get-images.md)
+- API Reference > Image Management [Delete Image](https://docs.reka.ai/vision/api-reference/image-management/delete-image.md)
+- API Reference > Image Search [Search Images](https://docs.reka.ai/vision/api-reference/image-search/search-images-v-1-images-search-post.md)
+- API Reference > V2 [List Videos](https://docs.reka.ai/vision/api-reference/v-2/list-videos-v-2-videos-get.md)
+- API Reference > V2 [Upload Video](https://docs.reka.ai/vision/api-reference/v-2/upload-video-v-2-videos-post.md)
+- API Reference > V2 [Get Video](https://docs.reka.ai/vision/api-reference/v-2/get-video-v-2-videos-video-id-get.md)
+- API Reference > V2 [Delete Video](https://docs.reka.ai/vision/api-reference/v-2/delete-video-v-2-videos-video-id-delete.md)
+- API Reference > V2 [Update Video Metadata](https://docs.reka.ai/vision/api-reference/v-2/update-video-metadata-v-2-videos-video-id-patch.md)
+- API Reference > V2 [List Video Groups](https://docs.reka.ai/vision/api-reference/v-2/list-video-groups-v-2-video-groups-get.md)
+- API Reference > V2 [Create Video Group](https://docs.reka.ai/vision/api-reference/v-2/create-video-group-v-2-video-groups-post.md)
+- API Reference > V2 [Get Video Group](https://docs.reka.ai/vision/api-reference/v-2/get-video-group-v-2-video-groups-group-id-get.md)
+- API Reference > V2 [Delete Video Group](https://docs.reka.ai/vision/api-reference/v-2/delete-video-group-v-2-video-groups-group-id-delete.md)
+- API Reference > V2 [Update Video Group](https://docs.reka.ai/vision/api-reference/v-2/update-video-group-v-2-video-groups-group-id-patch.md)
+- API Reference > V2 [List Group Videos](https://docs.reka.ai/vision/api-reference/v-2/list-group-videos-v-2-video-groups-group-id-videos-get.md)
+- API Reference > V2 [Move Videos To Group](https://docs.reka.ai/vision/api-reference/v-2/move-videos-to-group-v-2-video-groups-group-id-videos-post.md)
+- API Reference > V2 [Get Feature Catalog](https://docs.reka.ai/vision/api-reference/v-2/get-feature-catalog-v-2-features-get.md)
+- API Reference > V2 [Plan Features](https://docs.reka.ai/vision/api-reference/v-2/plan-features-v-2-videos-video-id-features-plan-post.md)
+- API Reference > V2 [Trigger Captions](https://docs.reka.ai/vision/api-reference/v-2/trigger-captions-v-2-videos-video-id-features-captions-post.md)
+- API Reference > V2 [Trigger Objects](https://docs.reka.ai/vision/api-reference/v-2/trigger-objects-v-2-videos-video-id-features-objects-post.md)
+- API Reference > V2 [Trigger Embeddings](https://docs.reka.ai/vision/api-reference/v-2/trigger-embeddings-v-2-videos-video-id-features-embeddings-post.md)
+- API Reference > V2 [Trigger Transcript](https://docs.reka.ai/vision/api-reference/v-2/trigger-transcript-v-2-videos-video-id-features-transcript-post.md)
+- API Reference > V2 [Search](https://docs.reka.ai/vision/api-reference/v-2/search-v-2-search-post.md)
+- API Reference > V2 [Chat](https://docs.reka.ai/vision/api-reference/v-2/chat-v-2-chat-post.md)
+- API Reference > V2 [List Captions](https://docs.reka.ai/vision/api-reference/v-2/list-captions-v-2-videos-video-id-captions-get.md)
+- API Reference > V2 [List Transcript](https://docs.reka.ai/vision/api-reference/v-2/list-transcript-v-2-videos-video-id-transcript-get.md)
+- API Reference > V2 [List Scenes](https://docs.reka.ai/vision/api-reference/v-2/list-scenes-v-2-videos-video-id-scenes-get.md)
+- API Reference > V2 [List Objects](https://docs.reka.ai/vision/api-reference/v-2/list-objects-v-2-videos-video-id-objects-get.md)
+- API Reference > V2 [Segment](https://docs.reka.ai/vision/api-reference/v-2/segment-v-2-videos-video-id-segment-post.md)
+- API Reference > Video Group [Move Videos To Group](https://docs.reka.ai/vision/api-reference/video-group/post-move-videos-to-group.md)
+- API Reference > Clip API [List Reels](https://docs.reka.ai/vision/api-reference/clip-api/list-reels-v-1-clips-get.md)
+- API Reference [Chat Completions](https://docs.reka.ai/research/api-reference/create-chat-completion.md)
+
+## OpenAPI Specification
+
+The raw OpenAPI 3.1 specification for this API is available at:
+- [OpenAPI JSON](https://docs.reka.ai/openapi.json)
+- [OpenAPI YAML](https://docs.reka.ai/openapi.yaml)

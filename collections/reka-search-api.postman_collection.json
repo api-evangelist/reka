@@ -1,0 +1,142 @@
+{
+  "item": [
+    {
+      "id": "26eb941a-162d-4738-afeb-d83a7e60b2fa",
+      "name": "Search",
+      "description": {
+        "content": "Search across uploaded video content.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b8c0d44-3a10-45cb-abbe-369e253b1cbc",
+          "name": "Search videos",
+          "request": {
+            "name": "Search videos",
+            "description": {
+              "content": "Search across uploaded videos with a natural-language query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"video_group_id\": \"<string>\",\n  \"limit\": 20\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50a52c10-f606-40ec-bf9a-d93a028db4a9",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"video_group_id\": \"<string>\",\n  \"limit\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"video_id\": \"string\",\n      \"score\": 3126.7577835037887,\n      \"timestamp\": 730.7160299224557\n    },\n    {\n      \"video_id\": \"string\",\n      \"score\": 2926.3855267718377,\n      \"timestamp\": 6365.881578808091\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.reka.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "46b00ec6-0499-4fad-9c47-f309bd10a3f0",
+    "name": "Reka Chat Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Reka API exposes Reka's multimodal foundation models through a REST\ninterface that includes chat completions, vision (video and image\nmanagement, search, Q&A, clip generation), speech transcription and\ntranslation, and a Research API with web search capabilities. The chat\nsurface is OpenAI-compatible.\n\nOnly a representative subset of endpoints is modeled here, drawn from\nthe public Reka documentation at https://docs.reka.ai. See the\ndocumentation for the full catalog.\n\n\nContact Support:\n Name: Reka Documentation",
+      "type": "text/plain"
+    }
+  }
+}

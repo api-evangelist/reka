@@ -1,0 +1,121 @@
+{
+  "item": [
+    {
+      "id": "1dec3750-0618-4801-8779-909de1b2e9f7",
+      "name": "Models",
+      "description": {
+        "content": "List and describe available Reka models.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fb6f9af9-9602-496f-a0da-5a4d5ce59fd0",
+          "name": "List available models",
+          "request": {
+            "name": "List available models",
+            "description": {
+              "content": "Return the list of Reka models available to the caller.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73eff952-3c9a-4d51-87f6-7ad7dc6c5db3",
+              "name": "A list of available models.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"object\": \"string\",\n      \"owned_by\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"object\": \"string\",\n      \"owned_by\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.reka.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "193e7786-10cb-4df5-8bf8-132be7484f36",
+    "name": "Reka Chat Models API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Reka API exposes Reka's multimodal foundation models through a REST\ninterface that includes chat completions, vision (video and image\nmanagement, search, Q&A, clip generation), speech transcription and\ntranslation, and a Research API with web search capabilities. The chat\nsurface is OpenAI-compatible.\n\nOnly a representative subset of endpoints is modeled here, drawn from\nthe public Reka documentation at https://docs.reka.ai. See the\ndocumentation for the full catalog.\n\n\nContact Support:\n Name: Reka Documentation",
+      "type": "text/plain"
+    }
+  }
+}

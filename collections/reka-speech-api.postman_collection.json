@@ -1,0 +1,180 @@
+{
+  "item": [
+    {
+      "id": "cf4da0b7-6f87-4d14-b237-fcdac67558fc",
+      "name": "Speech",
+      "description": {
+        "content": "Speech transcription and translation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4373f67f-ab9d-46a8-b3c6-fc2971de0472",
+          "name": "Transcribe or translate audio",
+          "request": {
+            "name": "Transcribe or translate audio",
+            "description": {
+              "content": "Transcribe or translate spoken audio with multimodal reasoning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "speech",
+                "transcribe-translate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "mode",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": " (This can only be one of transcribe,translate)"
+                },
+                {
+                  "key": "target_language",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Target language for translation."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5dca10ea-53d0-4f03-bd8b-6bfbef54f230",
+              "name": "Transcription or translation result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "speech",
+                    "transcribe-translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": " (This can only be one of transcribe,translate)",
+                        "type": "text/plain"
+                      },
+                      "key": "mode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Target language for translation.",
+                        "type": "text/plain"
+                      },
+                      "key": "target_language",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.reka.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1a217962-1504-4243-8aba-374545190880",
+    "name": "Reka Chat Speech API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Reka API exposes Reka's multimodal foundation models through a REST\ninterface that includes chat completions, vision (video and image\nmanagement, search, Q&A, clip generation), speech transcription and\ntranslation, and a Research API with web search capabilities. The chat\nsurface is OpenAI-compatible.\n\nOnly a representative subset of endpoints is modeled here, drawn from\nthe public Reka documentation at https://docs.reka.ai. See the\ndocumentation for the full catalog.\n\n\nContact Support:\n Name: Reka Documentation",
+      "type": "text/plain"
+    }
+  }
+}

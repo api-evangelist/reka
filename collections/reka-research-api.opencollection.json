@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reka Chat Research API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Research",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Research chat with web search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/chat/completions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OpenAI-compatible chat completions endpoint, including Reka Research\nmodels that can browse the web and return citations.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reka Chat Clips API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clips",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create clips",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.reka.ai/v1/clips",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate clips from a video by prompt or query."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
