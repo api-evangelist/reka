@@ -30,6 +30,17 @@ position: Provider
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/reka.png
 tags:
+  - Artificial Intelligence
+  - Multi-Modal
+  - Large Language Models
+  - Vision
+  - Speech
+  - Foundation Models
+  - OpenAI-Compatible
+  - SDK
+  - Enterprise
+  - On-Premises
+tags_raw:
   - AI
   - Multimodal
   - Large Language Models
