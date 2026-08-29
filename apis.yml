@@ -13,6 +13,17 @@ description: >-
   environments, and the company maintains an active open-source presence on
   Hugging Face and GitHub including the Reka VibeEval benchmark.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
