@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Reka Chat Research API
+  title: Reka Research API
   description: 'The Reka API exposes Reka''s multimodal foundation models through a REST
 
     interface that includes chat completions, vision (video and image
@@ -16,9 +16,7 @@ info:
 
     the public Reka documentation at https://docs.reka.ai. See the
 
-    documentation for the full catalog.
-
-    '
+    documentation for the full catalog.'
   version: 1.0.0
   contact:
     name: Reka Documentation
@@ -41,9 +39,7 @@ paths:
       summary: Research chat with web search
       description: 'OpenAI-compatible chat completions endpoint, including Reka Research
 
-        models that can browse the web and return citations.
-
-        '
+        models that can browse the web and return citations.'
       operationId: researchChat
       requestBody:
         required: true
@@ -60,27 +56,6 @@ paths:
                 $ref: '#/components/schemas/ChatResponse'
 components:
   schemas:
-    ChatRequest:
-      type: object
-      required:
-      - model
-      - messages
-      properties:
-        model:
-          type: string
-          description: Model identifier (e.g. reka-core, reka-flash, reka-edge).
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        max_tokens:
-          type: integer
-        temperature:
-          type: number
-        top_p:
-          type: number
-        stream:
-          type: boolean
     Message:
       type: object
       required:
@@ -115,6 +90,27 @@ components:
                   properties:
                     url:
                       type: string
+    ChatRequest:
+      type: object
+      required:
+      - model
+      - messages
+      properties:
+        model:
+          type: string
+          description: Model identifier (e.g. reka-core, reka-flash, reka-edge).
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        max_tokens:
+          type: integer
+        temperature:
+          type: number
+        top_p:
+          type: number
+        stream:
+          type: boolean
     ChatResponse:
       type: object
       properties:

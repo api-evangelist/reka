@@ -1,15 +1,7 @@
 {
   "provider": "reka",
   "sources": [
-    "reka-chat-api-openapi.yml",
-    "reka-clips-api-openapi.yml",
-    "reka-models-api-openapi.yml",
-    "reka-qa-api-openapi.yml",
-    "reka-research-api-openapi.yml",
-    "reka-search-api-openapi.yml",
-    "reka-speech-api-openapi.yml",
-    "reka-videogroups-api-openapi.yml",
-    "reka-videos-api-openapi.yml"
+    "_original/reka-openapi.yml"
   ],
   "outputs": [
     "reka-chat-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "reka-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "reka-chat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "reka-clips-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "reka-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "reka-qa-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "reka-research-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "reka-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "reka-speech-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "reka-videogroups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "reka-videos-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
