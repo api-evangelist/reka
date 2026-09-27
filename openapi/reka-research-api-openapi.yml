@@ -56,6 +56,54 @@ paths:
                 $ref: '#/components/schemas/ChatResponse'
 components:
   schemas:
+    ChatResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                $ref: '#/components/schemas/Message'
+              finish_reason:
+                type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer
+    ChatRequest:
+      type: object
+      required:
+      - model
+      - messages
+      properties:
+        model:
+          type: string
+          description: Model identifier (e.g. reka-core, reka-flash, reka-edge).
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        max_tokens:
+          type: integer
+        temperature:
+          type: number
+        top_p:
+          type: number
+        stream:
+          type: boolean
     Message:
       type: object
       required:
@@ -90,54 +138,6 @@ components:
                   properties:
                     url:
                       type: string
-    ChatRequest:
-      type: object
-      required:
-      - model
-      - messages
-      properties:
-        model:
-          type: string
-          description: Model identifier (e.g. reka-core, reka-flash, reka-edge).
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        max_tokens:
-          type: integer
-        temperature:
-          type: number
-        top_p:
-          type: number
-        stream:
-          type: boolean
-    ChatResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        model:
-          type: string
-        choices:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-              message:
-                $ref: '#/components/schemas/Message'
-              finish_reason:
-                type: string
-        usage:
-          type: object
-          properties:
-            prompt_tokens:
-              type: integer
-            completion_tokens:
-              type: integer
-            total_tokens:
-              type: integer
   securitySchemes:
     bearerAuth:
       type: http
