@@ -83,27 +83,6 @@ components:
               type: integer
             total_tokens:
               type: integer
-    ChatRequest:
-      type: object
-      required:
-      - model
-      - messages
-      properties:
-        model:
-          type: string
-          description: Model identifier (e.g. reka-core, reka-flash, reka-edge).
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        max_tokens:
-          type: integer
-        temperature:
-          type: number
-        top_p:
-          type: number
-        stream:
-          type: boolean
     Message:
       type: object
       required:
@@ -138,6 +117,27 @@ components:
                   properties:
                     url:
                       type: string
+    ChatRequest:
+      type: object
+      required:
+      - model
+      - messages
+      properties:
+        model:
+          type: string
+          description: Model identifier (e.g. reka-core, reka-flash, reka-edge).
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        max_tokens:
+          type: integer
+        temperature:
+          type: number
+        top_p:
+          type: number
+        stream:
+          type: boolean
   securitySchemes:
     bearerAuth:
       type: http
