@@ -45,24 +45,24 @@ tags:
   - Artificial Intelligence
   - Multi-Modal
   - LLM
-  - Vision
   - Speech
   - Foundation Models
   - OpenAI-Compatible
   - SDK
   - Enterprise
   - On-Premises
+  - Computer Vision
 tags_raw:
   - AI
   - Multimodal
   - Large Language Models
-  - Vision
   - Speech
   - Foundation Models
   - OpenAI Compatible
   - SDK
   - Enterprise
   - On-Premises
+  - Computer Vision
 url: https://raw.githubusercontent.com/api-evangelist/reka/refs/heads/main/apis.yml
 created: '2026-05-23'
 modified: '2026-05-23'
@@ -302,3 +302,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-tags-removed:
+- Vision
