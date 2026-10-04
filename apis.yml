@@ -68,28 +68,6 @@ created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.23'
 apis:
-- aid: reka:reka-chat-api
-  name: Reka Chat API
-  description: Chat completions with the Reka model family.
-  humanURL: https://docs.reka.ai
-  baseURL: https://api.reka.ai/v1
-  tags:
-  - Chat
-  properties:
-  - type: OpenAPI
-    url: openapi/reka-chat-api-openapi.yml
-  - type: Documentation
-    url: https://docs.reka.ai
-  - type: GettingStarted
-    url: https://docs.reka.ai/quick-start
-  - type: DeveloperPortal
-    url: https://platform.reka.ai
-  - type: SDKs
-    url: https://github.com/reka-ai/reka-sdk-python
-  - type: SDKs
-    url: https://pypi.org/project/reka-api
-  - type: Benchmark
-    url: https://github.com/reka-ai/reka-vibe-eval
 - aid: reka:reka-clips-api
   name: Reka Clips API
   description: Generate and manage video clips.
@@ -256,6 +234,28 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/reka-videos-api-openapi.yml
+  - type: Documentation
+    url: https://docs.reka.ai
+  - type: GettingStarted
+    url: https://docs.reka.ai/quick-start
+  - type: DeveloperPortal
+    url: https://platform.reka.ai
+  - type: SDKs
+    url: https://github.com/reka-ai/reka-sdk-python
+  - type: SDKs
+    url: https://pypi.org/project/reka-api
+  - type: Benchmark
+    url: https://github.com/reka-ai/reka-vibe-eval
+- aid: reka:reka-chat-completions-api
+  name: Reka Chat Completions API
+  description: Chat completions with the Reka model family.
+  humanURL: https://docs.reka.ai
+  baseURL: https://api.reka.ai/v1
+  tags:
+  - Chat Completions
+  properties:
+  - type: OpenAPI
+    url: openapi/reka-chat-completions-api-openapi.yml
   - type: Documentation
     url: https://docs.reka.ai
   - type: GettingStarted

@@ -29,13 +29,13 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: Chat
+- name: Chat Completions
   description: Chat completions with the Reka model family.
 paths:
   /v1/chat:
     post:
       tags:
-      - Chat
+      - Chat Completions
       summary: Create a chat completion
       description: 'Generate a chat completion from one of the Reka models. Supports
 
@@ -56,33 +56,6 @@ paths:
                 $ref: '#/components/schemas/ChatResponse'
 components:
   schemas:
-    ChatResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        model:
-          type: string
-        choices:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-              message:
-                $ref: '#/components/schemas/Message'
-              finish_reason:
-                type: string
-        usage:
-          type: object
-          properties:
-            prompt_tokens:
-              type: integer
-            completion_tokens:
-              type: integer
-            total_tokens:
-              type: integer
     Message:
       type: object
       required:
@@ -117,6 +90,33 @@ components:
                   properties:
                     url:
                       type: string
+    ChatResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                $ref: '#/components/schemas/Message'
+              finish_reason:
+                type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer
     ChatRequest:
       type: object
       required:
