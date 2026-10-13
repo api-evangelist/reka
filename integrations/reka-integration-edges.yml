@@ -1,0 +1,90 @@
+edges:
+- partner_name: OpenRouter
+  partner: openrouter
+  partner_match: router
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: system-coverage
+  evidence: https://openrouter.ai/api/v1/models
+  coverage_role:
+  - inference-host
+  - model-maker
+  router_signals:
+    model-maker:
+      models: 2
+      router_ids:
+      - rekaai
+      tools_share: 0.5
+      structured_output_share: 1.0
+    inference-host:
+      models: 9
+      router_ids:
+      - Reka
+      tools_share: 0.89
+      structured_output_share: 1.0
+  matched_by: verified-token-table
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
+- partner_name: LLM Gateway
+  partner: llmgateway-io
+  partner_match: router
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.llmgateway.io/v1/models
+  coverage_role:
+  - provider
+  router_signals:
+    provider:
+      models: 6
+      router_ids:
+      - reka-ai
+      tools_share: 1.0
+      structured_output_share: 1.0
+  matched_by: verified-token-table
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
+- partner_name: Portkey
+  partner: portkey
+  partner_match: router
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: system-coverage
+  evidence: https://github.com/Portkey-AI/gateway/tree/main/src/providers/reka-ai
+  coverage_role:
+  - provider
+  router_signals:
+    provider:
+      models: null
+      router_ids:
+      - reka-ai
+  matched_by: verified-token-table
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
+- partner_name: OpenAI
+  partner: openai
+  partner_match: domain
+  type: contract
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/reka/blob/main/openapi/reka-models-api-openapi.yml#L12
+  contract_reference:
+    repo: reka
+    spec_file: reka-models-api-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'reka declares OpenAI compatibility: ''surface is OpenAI-compatible.'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-13'
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched
+checked:
+- https://api.llmgateway.io/v1/models
+- https://github.com/Portkey-AI/gateway/tree/main/src/providers
+- https://openrouter.ai/api/v1/models
