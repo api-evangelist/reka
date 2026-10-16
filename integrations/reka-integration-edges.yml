@@ -21,7 +21,7 @@ edges:
       models: 9
       router_ids:
       - Reka
-      tools_share: 0.89
+      tools_share: 0.78
       structured_output_share: 1.0
   matched_by: verified-token-table
   detected_by: sweep-model-routing.py
@@ -38,7 +38,7 @@ edges:
   - provider
   router_signals:
     provider:
-      models: 6
+      models: 3
       router_ids:
       - reka-ai
       tools_share: 1.0
@@ -79,7 +79,7 @@ edges:
     value: OpenAI-compatible
     note: 'reka declares OpenAI compatibility: ''surface is OpenAI-compatible.'''
     detected_by: sweep-model-routing.py
-    detected: '2026-10-13'
+    detected: '2026-10-15'
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
 - partner_name: MCP Registry
@@ -97,7 +97,7 @@ edges:
     registered_name: ai.reka/mcp
     register_id: ai.reka/mcp
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-14'
+    detected: '2026-10-15'
   mcp_registry:
     servers:
     - ai.reka/mcp

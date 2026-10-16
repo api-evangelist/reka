@@ -52,7 +52,7 @@
     value: OpenAI-compatible
     note: 'reka declares OpenAI compatibility: ''surface is OpenAI-compatible.'''
     detected_by: sweep-model-routing.py
-    detected: '2026-10-13'
+    detected: '2026-10-15'
   status: not-a-workflow
   arazzo: null
 - slug: reka-mcp-registry
@@ -71,6 +71,6 @@
     registered_name: ai.reka/mcp
     register_id: ai.reka/mcp
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-14'
+    detected: '2026-10-15'
   status: not-a-workflow
   arazzo: null
