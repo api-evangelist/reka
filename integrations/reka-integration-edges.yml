@@ -1,4 +1,36 @@
 edges:
+- partner_name: MCP Registry
+  partner: mcp
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=ai.reka
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: ai.reka/mcp
+    register_id: ai.reka/mcp
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-19'
+  mcp_registry:
+    servers:
+    - ai.reka/mcp
+    hosted_remote: 1
+    local_package: 1
+    transports:
+      stdio: 1
+      streamable-http: 1
+    auth_declared: 1
+    catalog_declared: true
+    namespace_domains:
+    - reka.ai
+  matched_by:
+  - namespace-domain
+  detected_by: sweep-agent-tools.py
+  first_seen: '2026-10-14'
 - partner_name: OpenRouter
   partner: openrouter
   partner_match: router
@@ -18,10 +50,10 @@ edges:
       tools_share: 0.5
       structured_output_share: 1.0
     inference-host:
-      models: 9
+      models: 8
       router_ids:
       - Reka
-      tools_share: 0.78
+      tools_share: 0.88
       structured_output_share: 1.0
   matched_by: verified-token-table
   detected_by: sweep-model-routing.py
@@ -79,41 +111,9 @@ edges:
     value: OpenAI-compatible
     note: 'reka declares OpenAI compatibility: ''surface is OpenAI-compatible.'''
     detected_by: sweep-model-routing.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
-- partner_name: MCP Registry
-  partner: mcp
-  partner_match: register
-  type: register
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=ai.reka
-  contract_reference:
-    register: registry.modelcontextprotocol.io
-    spec_file: null
-    role: mcp-server-listing
-    registered_name: ai.reka/mcp
-    register_id: ai.reka/mcp
-    detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
-  mcp_registry:
-    servers:
-    - ai.reka/mcp
-    hosted_remote: 1
-    local_package: 1
-    transports:
-      stdio: 1
-      streamable-http: 1
-    auth_declared: 1
-    catalog_declared: true
-    namespace_domains:
-    - reka.ai
-  matched_by:
-  - namespace-domain
-  detected_by: sweep-agent-tools.py
-  first_seen: '2026-10-14'
 generated: '2026-10-13'
 method: searched
 checked:
