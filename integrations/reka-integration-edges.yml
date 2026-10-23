@@ -114,6 +114,34 @@ edges:
     detected: '2026-10-19'
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
+- partner_name: Hugging Face (hugging-face-hub)
+  partner: hugging-face
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: hugging-face-hub
+  evidence: https://huggingface.co/RekaAI
+  mirror_of: hugging-face/integrations/hugging-face-integration-edges.yml
+  apps:
+  - RekaAI/RekaDaily-10k-raw
+  - RekaAI/RekaDaily-10k-processed
+  - RekaAI/CS2-10k
+  - RekaAI/VibeEval
+  - RekaAI/reka-flash-3
+  - RekaAI/reka-edge-2603
+  - RekaAI/reka-flash-3.1
+  - RekaAI/reka-flash-3.1-rekaquant-q3_k_s
+  - RekaAI/Reka-Inverse-Dynamics-Model
+  - RekaAI/RekaDaily-10k-sample-viewer
+  listing_count: 3
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Hugging Face Hub datasets
+  badges:
+  - Verified publisher (Hugging Face verified organisation)
 generated: '2026-10-13'
 method: searched
 checked:
@@ -121,3 +149,6 @@ checked:
 - https://github.com/Portkey-AI/gateway/tree/main/src/providers
 - https://openrouter.ai/api/v1/models
 - https://registry.modelcontextprotocol.io/v0/servers
+- hugging-face/integrations/hugging-face-integration-edges.yml
+source:
+- hugging-face/integrations/hugging-face-integration-edges.yml
