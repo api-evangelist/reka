@@ -1,4 +1,4 @@
-# Reka (reka)
+# Reka
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,78 +66,141 @@
 
 Reka is a multimodal foundation model company building natively multimodal large language models capable of joint reasoning over text, image, video, and audio. The Reka model family spans Spark (1B) for embedded use cases, Edge (7B), Flash (21B), and Core (67B) for complex enterprise tasks. Reka exposes its hosted models through the Reka API at api.reka.ai with OpenAI-compatible chat completions, and also ships products including the Reka Vision Platform for enterprise perception, Reka Speech for audio understanding, and Reka Clip for creators. The platform supports flexible deployment across cloud, VPC, on-premises, and fully air-gapped environments, and the company maintains an active open-source presence on Hugging Face and GitHub including the Reka VibeEval benchmark.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/reka/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/reka/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Multi-Modal · LLM · Speech · Foundation Models · OpenAI-Compatible · SDK · Enterprise · On-Premises · Computer Vision
 
-## Scope
+## Reka on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Reka is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/reka/](https://apis.io/providers/reka/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- AI
-- Multimodal
-- Large Language Models
-- Vision
-- Speech
-- Foundation Models
-- OpenAI Compatible
-- SDK
-- Enterprise
-- On-Premises
+- [Reka Clips API](https://apis.io/apis/reka/reka-clips-api/) — Generate and manage video clips.
+- [Reka Models API](https://apis.io/apis/reka/reka-models-api/) — List and describe available Reka models.
+- [Reka QA API](https://apis.io/apis/reka/reka-qa-api/) — Question-answer interactions over video content.
+- [Reka Research API](https://apis.io/apis/reka/reka-research-api/) — Research chat completions with web search.
+- [Reka Search API](https://apis.io/apis/reka/reka-search-api/) — Search across uploaded video content.
+- [Reka Speech API](https://apis.io/apis/reka/reka-speech-api/) — Speech transcription and translation.
+- [Reka VideoGroups API](https://apis.io/apis/reka/reka-videogroups-api/) — Organize videos into named groups.
+- [Reka Videos API](https://apis.io/apis/reka/reka-videos-api/) — Upload and manage videos for the Reka Vision platform.
+- [Reka Chat Completions API](https://apis.io/apis/reka/reka-chat-completions-api/) — Chat completions with the Reka model family.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Reka API
+Model Context Protocol servers that expose the API to agents.
 
-The Reka API exposes chat-completion and multimodal endpoints for the Reka Core, Flash, Edge, and Spark models with image, video, and audio input support. The v1 surface at api.reka.ai/v1 is OpenAI-compatible and Reka Research is fully compatible with the OpenAI /chat/completions schema. Reka offers a published OpenAPI definition and interactive Swagger documentation along with first-party Python and TypeScript SDKs, vLLM plugin, n8n nodes, and a .NET SDK.
+- [reka](https://apis.io/servers/reka/reka/)
 
-- **Human URL:** [https://docs.reka.ai](https://docs.reka.ai)
-- **Base URL:** `https://api.reka.ai/v1`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Multimodal
-- LLM
-- Chat Completions
-- OpenAI Compatible
-- Vision
-- Video
-- REST
+- [Reka Agentic Access](https://apis.io/agentic-access/reka/reka-agentic-access/)
 
-#### Properties
+#### Collections (10)
 
-- [Documentation](https://docs.reka.ai)
-- [Getting Started](https://docs.reka.ai/quick-start)
-- [OpenAPI](https://api.reka.ai/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Developer  Portal](https://platform.reka.ai)
-- [SDK](https://github.com/reka-ai/reka-sdk-python)
-- [SDK](https://pypi.org/project/reka-api)
-- [Benchmark](https://github.com/reka-ai/reka-vibe-eval)
-- [Postman Collection](collections/reka.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/reka.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Reka API](https://apis.io/collections/reka/open-reka/)
+- [Reka Chat API](https://apis.io/collections/reka/open-reka-chat-api/)
+- [Reka Chat Clips API](https://apis.io/collections/reka/open-reka-clips-api/)
+- [Reka Chat Models API](https://apis.io/collections/reka/open-reka-models-api/)
+- [Reka Chat QA API](https://apis.io/collections/reka/open-reka-qa-api/)
+- [Reka Chat Research API](https://apis.io/collections/reka/open-reka-research-api/)
+- [Reka Chat Search API](https://apis.io/collections/reka/open-reka-search-api/)
+- [Reka Chat Speech API](https://apis.io/collections/reka/open-reka-speech-api/)
+- [Reka Chat VideoGroups API](https://apis.io/collections/reka/open-reka-videogroups-api/)
+- [Reka Chat Videos API](https://apis.io/collections/reka/open-reka-videos-api/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Reka Authentication](https://apis.io/security/reka/reka-authentication/)
+- [Reka Domain Security](https://apis.io/security/reka/reka-domain-security/)
+- [Reka Trust Center](https://apis.io/security/reka/reka-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Reka Plans Pricing](https://apis.io/plans/reka/reka-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Reka Rate Limits](https://apis.io/rate-limits/reka/reka-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Reka Finops](https://apis.io/finops/reka/reka-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://reka.ai)
 - [Documentation](https://docs.reka.ai)
-- [Developer  Portal](https://platform.reka.ai)
-- [OpenAPI](https://api.reka.ai/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GitHub Organization](https://github.com/reka-ai)
-- [Hugging Face](https://huggingface.co/RekaAI)
-- [Discord](https://discord.gg/rekaai)
 - [Blog](https://reka.ai/news)
-- [LinkedIn](https://www.linkedin.com/company/reka-ai)
-- [Twitter](https://twitter.com/RekaAILabs)
-- [L L Ms Txt](https://docs.reka.ai/llms.txt)
+- [GitHub](https://github.com/reka-ai)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.5** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 49.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 13.2 |
+
+**Agent readiness 27.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 15.5** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/reka/](https://apis.io/providers/reka/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Reka: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/reka/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
